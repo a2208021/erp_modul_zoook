@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+        <!-- Acciones -->
+        <record model="ir.actions.act_window" id="action_zoook_zoo_tree">
+            <field name="name">Zoo</field>
+            <field name="res_model">zoook.zoo</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_zoook_animal_tree">
+            <field name="name">Animal</field>
+            <field name="res_model">zoook.animal</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_zoook_especie_tree">
+            <field name="name">Especie</field>
+            <field name="res_model">zoook.especie</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem name="Zoo" id="zoo_menu1" />
+        <menuitem name="Zoo" parent="zoo_menu1" id="zoo_menu1_1" action="action_zoook_zoo_tree" />	
+        <menuitem name="Animal" parent="zoo_menu1" id="zoo_menu1_2" action="action_zoook_animal_tree" />	
+        <menuitem name="Especie" parent="zoo_menu1" id="zoo_menu1_3" action="action_zoook_especie_tree" />		
+
+        <!-- Vistas tree -->
+        <record model="ir.ui.view" id="view_zoook_zoo_tree">
+            <field name="name">zoook_zoo</field>
+            <field name="model">zoook.zoo</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Zoo">
+                    <field name="nom"/>
+                    <field name="pais"/>
+                    <field name="ciutat"/>
+                    <field name="grandaria"/>				
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_zoook_animal_tree">
+            <field name="name">zoook_animal</field>
+            <field name="model">zoook.animal</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Animal">
+                    <field name="continentOrigen"/>
+                    <field name="paisOrigen"/>
+                    <field name="dataNaix"/>
+                    <field name="sexe"/>				
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_zoook_especie_tree">
+            <field name="name">zoook_especie</field>
+            <field name="model">zoook.especie</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Especie">
+                    <field name="nomVulgar"/>
+                    <field name="nomCientific"/>
+                    <field name="familia"/>				
+                    <field name="perill"/>				
+                </tree>
+            </field>
+        </record>
+	</data>
+</odoo>
