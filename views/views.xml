@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
+        <!-- Vista Form -->
+        <record model="ir.ui.view" id="view_zoook_animal_form">
+            <field name="name">zoook.animal.form</field>
+            <field name="model">zoook.animal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Animal">
+                    <sheet>
+                        <group>
+                            <field name="continentOrigen"/>
+                            <field name="paisOrigen"/>
+                            <field name="dataNaix"/>
+                            <field name="sexe"/>	
+                            <field name="zoo_id"/>	
+                            <field name="especie_id"/>	
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
         <!-- Acciones -->
         <record model="ir.actions.act_window" id="action_zoook_zoo_tree">
             <field name="name">Zoo</field>
@@ -17,11 +38,19 @@
             <field name="res_model">zoook.especie</field>
         </record>
 
+        <record model="ir.actions.act_window" id="action_zoook_animal_form">
+            <field name="name">Formulari de Animal</field>
+            <field name="res_model">zoook.animal</field>
+            <field name="view_mode">form</field>
+        </record>
+
         <!-- Menu -->
         <menuitem name="Zoo" id="zoo_menu1" />
         <menuitem name="Zoo" parent="zoo_menu1" id="zoo_menu1_1" action="action_zoook_zoo_tree" />	
         <menuitem name="Animal" parent="zoo_menu1" id="zoo_menu1_2" action="action_zoook_animal_tree" />	
         <menuitem name="Especie" parent="zoo_menu1" id="zoo_menu1_3" action="action_zoook_especie_tree" />		
+        <!-- Añadimos al menu la vista form -->
+        <menuitem name="Formulari de Animal" parent="zoo_menu1_2" id="zoo_menu1_5" action="action_zoook_animal_form"/>
 
         <!-- Vistas tree -->
         <record model="ir.ui.view" id="view_zoook_zoo_tree">
@@ -47,7 +76,9 @@
                     <field name="continentOrigen"/>
                     <field name="paisOrigen"/>
                     <field name="dataNaix"/>
-                    <field name="sexe"/>				
+                    <field name="sexe"/>	
+                    <field name="zoo_id"/>	
+                    <field name="especie_id"/>				
                 </tree>
             </field>
         </record>
